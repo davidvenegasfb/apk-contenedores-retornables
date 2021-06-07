@@ -1,0 +1,152 @@
+<div class="col-md-4 offset-md-4">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <table style="width:100%">
+                    <td>
+                        <p>Fecha Instalación: </p>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input size="2" type="text" name="fecha" [(ngModel)]="contenedor.fechinatala"
+                                onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control">
+                        </div>
+                    </td>
+                </table>
+                <div class="form-group">
+                    <input type="text" ng-model="form_text" name="expediente" [(ngModel)]="contenedor.expedienteAlta"
+                        placeholder="Expediente" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" ng-model="form_text" name="entregado por" [(ngModel)]="reposicion.entregadoPor"
+                        placeholder="Entregado por" class="form-control">
+                </div>
+                <div>
+                    <table>
+                        <td>
+                            <button (click)="addentrega()">Añadir contenedor a entrega</button>
+                        </td>
+                    </table>
+                </div>
+                <div id="buscar">
+                    <div id="busctitle">
+                        <a>Buscador de calle:</a>
+                    </div>
+                    <div id="busccheck">
+                        <input type="checkbox" (change)="buscador()">
+                    </div>
+                    <div *ngIf="busca">
+                        <div class="list-container">
+                            <dx-list 
+                                #list
+                                [dataSource]="tasks"
+                                [height]="200"
+                                [searchEnabled]="true"
+                                searchExpr="denominacion"
+                                selectionMode="single"
+                                searchMode="contains"
+                                (onSelectionChanged)="callDenominacion($event)"
+                                >
+                                    <div *dxTemplate="let callex of 'item'">
+                                        <div>{{callex.denominacion}} codigo:{{callex.codigo}} </div>
+                                    </div>
+                            </dx-list>
+                        </div>
+                    </div>
+                </div>
+                <div *ngFor="let dummy of ' '.repeat(numberofnew+1).split(''), let i=index">
+                    <div>
+                        <p>Identificador:</p>
+                    </div>
+                    <table>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" id="{{'calle'+i}}" name="idCalle"
+                                    placeholder="Calle" class="form-control">
+                            </div>
+                        </td>
+                        <p>.</p>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" id="{{'numero'+i}}" name="numCalle" placeholder="Número"
+                                    class="form-control">
+                            </div>
+                        </td>
+                        <p>.</p>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" id="{{'actividad'+i}}" name="idActividad" placeholder="Actividad"
+                                    class="form-control">
+                            </div>
+                        </td>
+                        <p>.</p>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" id="{{'orden'+i}}" name="numOrden" placeholder="Orden"
+                                    class="form-control">
+                            </div>
+                        </td>
+                    </table>
+                    <div class="form-group">
+                        <table style="width:100%">
+                            <td>
+                                <p>ID Capacidad: </p>
+                            </td>
+                            <td>
+                                <select id="{{'capacidad'+i}}" name="idCapacidad" class="form-control"
+                                    style="width:100%">
+                                    <option>120</option>
+                                    <option>240</option>
+                                    <option>360</option>
+                                    <option>800</option>
+                                    <option>1000</option>
+                                </select>
+                            </td>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="solicitante" [(ngModel)]="contenedor.solicitante" placeholder="Solicitante"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="DNIS" [(ngModel)]="reposicion.DNIS" placeholder="DNIS"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Receptor" [(ngModel)]="reposicion.receptor" placeholder="Receptor"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="DNIR" [(ngModel)]="reposicion.DNIR" placeholder="DNIR"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Asignatario" [(ngModel)]="reposicion.asignatario" placeholder="Asignatario"
+                        class="form-control">
+                </div>
+                <table>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" name="DNIA" [(ngModel)]="reposicion.DNIA" placeholder="DNIA"
+                                class="form-control">
+                        </div>
+                    </td>
+                    <td>
+                        <table>
+                            <td>
+                                <a>Mismo:</a>
+                            </td>
+                            <td>
+                                <input type="checkbox" (change)="changecheckbox()">
+                            </td>
+                        </table>
+                    </td>
+                </table>
+                <button type="button" class="btn btn-danger" (click)="saveNewContenedorCopia()">
+                    Firmar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

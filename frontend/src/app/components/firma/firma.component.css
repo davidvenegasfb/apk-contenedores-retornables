@@ -1,0 +1,31 @@
+img {
+    width: 50%;
+    height: 50%;
+}
+
+#img2 {
+    width: 50%;
+    height: 50%;
+    float: right;
+}
+
+#a1{
+    margin-left: 20px;
+}
+
+#input1{
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width: 86%;
+}
+
+
+#check,
+#title {
+    display: inline;
+}
+
+#check {
+    position: relative;
+    left: 200px;
+}

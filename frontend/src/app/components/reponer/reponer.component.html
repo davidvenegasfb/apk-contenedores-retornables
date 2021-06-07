@@ -1,0 +1,62 @@
+<div class="col-md-4 offset-md-4">
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <table style="width:100%">
+            <td>
+              <p>Nombre y Apellidos: </p>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="text" name="nombre" [(ngModel)]="nombre" placeholder="Nombre y Apellidos" class="form-control">
+              </div>
+            </td>
+          </table>
+          <table style="width:100%">
+            <td>
+              <p>Dirección: </p>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="text" name="direccion" [(ngModel)]="direccion" placeholder="Dirección" class="form-control">
+              </div>
+            </td>
+          </table>
+          <table style="width:100%">
+            <td>
+              <p>Teléfono: </p>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="text" name="telefono" [(ngModel)]="telefono" placeholder="Teléfono" class="form-control">
+              </div>
+            </td>
+          </table>
+          <table style="width:100%">
+            <td>
+              <p>NIF/CIF: </p>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="text" name="NIF/CIF" [(ngModel)]="CIF" placeholder="NIF/CIF" class="form-control">
+              </div>
+            </td>
+          </table>
+          <table style="width:100%">
+            <td>
+              <p>Causa: </p>
+            </td>
+            <td>
+              <div class="form-group">
+                <input type="text" name="Causa" [(ngModel)]="causa" placeholder="Causa" class="form-control">
+              </div>
+            </td>
+          </table>
+          <button type="button" class="btn btn-danger" (click)="firmar()">
+            Firmar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

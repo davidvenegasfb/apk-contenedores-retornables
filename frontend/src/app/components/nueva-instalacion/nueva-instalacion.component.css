@@ -1,0 +1,17 @@
+button {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+select {
+    margin-bottom: 10px;
+}
+
+#busccheck,
+#busctitle {
+    display: inline;
+}
+
+#busccheck {
+    float: right;
+}

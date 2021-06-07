@@ -1,0 +1,12 @@
+<div class="col-md-4" *ngFor="let reposicion of reposiciones; let indice = index">
+  <div class="card text-center">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+      <td>FRR{{reposicion.matricula}}</td>
+      <td>{{reposicion.fecha}}</td>
+      <button class="btn btn-danger" (click)="seeReposicion(reposicion.matricula)">
+        <i class="fas fa-eye"></i>
+      </button>
+    </div>
+  </div>
+</div>
+  

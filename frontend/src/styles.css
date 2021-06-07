@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+
+.btn{
+    color: white;
+    background-color: #EFB502;
+    border-color: #EFB502;
+}
+
+.btn-danger{
+    color: white;
+    background-color: #EFB502;
+    border-color: #EFB502;
+}
+
+.btn:hover{
+    color: white;
+    background-color: rgb(226, 147, 0);
+    border-color: rgb(226, 147, 0);
+}
+
+.btn-danger:hover{
+    color: white;
+    background-color: rgb(226, 147, 0);
+    border-color: rgb(226, 147, 0);
+}
+
+.btn:focus{
+    color: white;
+    background-color: rgb(226, 147, 0);
+    border-color: rgb(226, 147, 0);
+}
+
+.btn-danger:focus{
+    color: white;
+    background-color: rgb(226, 147, 0);
+    border-color: rgb(226, 147, 0);
+}

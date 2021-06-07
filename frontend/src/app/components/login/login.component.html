@@ -1,0 +1,16 @@
+<div class="col-md-4 offset-md-4">
+  <form action="/login" method="POST">
+    <div class="text-center">
+      <img id="img1" src="http://81.33.23.210/assets/logo.png"/>
+    </div>
+    <div class="container">
+      <label for="uname"><b>Nombre</b></label>
+      <input type="text" placeholder="Nombre de usuario" #uname name="uname" required>
+  
+      <label for="psw"><b>Contraseña</b></label>
+      <input type="password" placeholder="Contraseña" #pass name="pass" required>
+  
+      <button type="submit" class="btn btn-danger" (click)="logIn(uname.value, pass.value)">Login</button>
+    </div>
+  </form>
+</div>

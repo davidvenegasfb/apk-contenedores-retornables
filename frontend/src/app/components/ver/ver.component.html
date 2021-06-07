@@ -1,0 +1,24 @@
+<div class="col-md-8 offset-md-2">
+  <div class="card card-body text-center">
+    <h3>Matricula: FRR{{contenedor.matricula}}</h3>
+    <p>Identificador: {{contenedor.idCalle}}.{{contenedor.numCalle}}.{{contenedor.idActividad}}.{{contenedor.numOrden}}</p>
+    <p>ID Capacidad: {{contenedor.idCapacidad}}</p>
+    <p>ID Proveedor: {{contenedor.idProveedor}}</p>
+    <p>Situación: {{contenedor.situacion}}</p>
+    <p>Estado de retorno: {{contenedor.estadoretorn}}</p>
+    <p>Fecha de Instalación: {{contenedor.fechinatala | date: 'dd/MM/yyyy'}}</p>
+    <p>Denominación Actividad: {{contenedor.denomActividad}}</p>
+    <p>Solicitante: {{contenedor.solicitante}}</p>
+    <p>DNI_NIF: {{contenedor.DNI_NIF}}</p>
+    <p>Fecha de Último Movimiento: {{contenedor.fechaUltMov | date: 'dd/MM/yyyy'}}</p>
+    <p>Fecha de Baja: {{contenedor.fechaBaja | date: 'dd/MM/yyyy'}}</p>
+    <p>Observaciones de Retorno: {{contenedor.observacionesRetorn}}</p>
+    <p>Expediente de Alta: {{contenedor.expedienteAlta}}</p>
+    <p>Carga Lateral: {{contenedor.cargaLateral}}</p>
+    <p>Caseta: {{contenedor.caseta}}</p>
+    <p>Soterrado: {{contenedor.soterrado}}</p>
+    <textarea rows="10">
+        {{auxi}}
+    </textarea>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+th, td {
+    white-space: nowrap;
+    table-layout: fixed;
+    width: 50%;
+}
+#td1{
+    width: 24%;
+}
+#tb1{
+    table-layout: fixed ;
+    width: 100% ;
+}
+#td8{
+    width: 50%;
+}

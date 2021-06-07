@@ -1,0 +1,48 @@
+<div class="col-md-8 offset-md-2">
+    <div id="recibo" class="card-body">
+        <table style="width: 100%">
+            <img src="http://81.33.23.210/assets/logoayuntamiento.png" alt="Ayuntamiento de Granada" id="img1" />
+
+            <img src="http://81.33.23.210/assets/logoinagra.jpg" alt="Inagra" id="img2" />
+        </table>
+        <div id="print">
+            <!--<table style="width: 100%">
+                <img src="../../../assets/logoayuntamiento.png" style="display: none;" alt="" id="imgx1">
+                <img src="../../../assets/logoinagra.jpg" style="display: none;" alt="" id="imgx2">
+            </table>-->
+            <div style="clear: right">
+                <a>Yo, {{params}}, afirmo haber recibido el contenedor solicitado.<br>
+                    <br>
+                    <b>AVISO DE RESPONSABILIDAD: </b><br>
+                    El firmante declara conocer y se responsabiliza del cumplimiento de las obligaciones determinadas en
+                    la Ordenaza Municipal de Limpieza Pública y Gestión de Residuos Urbanos respecto a la utilización y
+                    mantenimiento de los contenedores, comprometiendose a:<br>
+                    <li>Utilizar dichos recipientes conforme a su uso y naturaleza, liberando en éstos los residuos
+                        mediante bolsas de plástico estandar y de adecuada resistencia al desgarro y sin que contengan
+                        líquidos, así como no utilizarlos para el libramiento de residuos cuya recogida no corresponda a
+                        los servicios municipales o sean objeto de recogida especial o diferenciada.</li>
+                    <li>Retirarlos de la vía pública tras su recogida y antes de las 10.00 h. y no sacarlos antes de las
+                        20.00 h.</li>
+                    <li>Mantenerlos en condiciones de limpieza, numeración, rotulación y uso determinadas.</li>
+                    <li>Tratarlos o manipularlos con cuidado de no deteriorarlos.</li>
+                    <li>Comunicar a los servicios municipales en caso de deterioro o pérdida de los mismos mediante
+                        aviso al teléfono: </li>
+                </a>
+                <b>901 100 077<br></b>
+                <a>A día: {{today2}} en Granada</a>
+                <a> Firmado:<br></a>
+                <ng-signature-pad height="400" clearButtonText="Borrar" doneButtonText="Guardar" format="base64"
+                    (done)="guardar()" clearButtonClass="btn btn-danger" doneButtonClass="btn btn-danger">
+                </ng-signature-pad>
+            </div>
+        </div>
+    </div>
+    <div id="print">
+        <div id="title">
+            <a id="a1">¿Quiere copia?</a>
+        </div>
+        <div id="check">
+            <input type="checkbox" (change)="changecheckbox()">
+        </div>
+    </div>
+</div>

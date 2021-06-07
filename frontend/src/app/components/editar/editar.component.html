@@ -1,0 +1,111 @@
+<script>
+ contenedor.fechinatala = contenedor.fechinatala.getDate() + 1;
+ System.out.println(contenedor.fechinatala);
+</script>
+<div class="col-md-4 offset-md-2">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div>
+          <table id="tb1">
+            <td id="td8">
+              <p>Editar contenedor:</p>
+            </td>
+            <td id="td8">
+              <p>FRR{{contenedor.matricula}}</p>
+            </td>
+          </table>
+        </div>
+        <div class="form-group">
+          <table>
+            <td>
+              <p>Fecha Instalación:</p>
+            </td>
+            <td>
+              <input id="md" name="fecha" [(ngModel)]="this.contenedor.fechinatala" placeholder="Fecha Instalación" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control">
+            </td>
+          </table>
+        </div>
+        <div class="form-group">
+          <table>
+            <td>
+              <p>Expediente:</p>
+            </td>
+            <td>
+              <input type="text" name="expediente" [(ngModel)]="contenedor.expedienteAlta" placeholder="Expediente" class="form-control" autofocus>
+            </td>
+          </table>
+        </div>
+        <div class="form-group">
+          <table style="width:100%">
+            <td>
+              <p>ID Capacidad: </p>
+            </td>
+            <td>
+              <select name="idCapacidad" [(ngModel)]="contenedor.idCapacidad" class="form-control"  style="width:100%">
+                <option>120</option> 
+                <option>240</option> 
+                <option>360</option> 
+                <option>800</option>
+                <option>1000</option>
+              </select>
+            </td>
+          </table>
+        </div>
+        <div>
+          <p>Identificador:</p>
+        </div>
+        <table>
+          <td id="td1">
+            <div class="form-group">
+              <input type="text" id="identificador" name="idCalle" [(ngModel)]="contenedor.idCalle" placeholder="Calle" class="form-control">
+            </div>
+          </td>
+          <p>.</p>
+          <td id="td1">
+            <div class="form-group">
+              <input type="text" id="identificador" name="numCalle" [(ngModel)]="contenedor.numCalle" placeholder="Número" class="form-control">
+            </div>
+          </td>
+          <p>.</p>
+          <td id="td1">
+            <div class="form-group">
+              <input type="text" id="identificador" name="idActividad" [(ngModel)]="contenedor.idActividad" placeholder="Actividad" class="form-control">
+            </div>
+          </td>
+          <p>.</p>
+          <td id="td1">
+            <div class="form-group">
+              <input type="text" id="identificador" name="numOrden" [(ngModel)]="contenedor.numOrden" placeholder="Orden" class="form-control">
+            </div>
+          </td>
+        </table>
+        <div class="form-group">
+          <table>
+            <td>
+              <p>Solicitante:</p>
+            </td>
+            <td>
+              <input type="text" name="solicitante" [(ngModel)]="contenedor.solicitante" placeholder="Solicitante" class="form-control">
+            </td>
+          </table>
+        </div>
+        <button type="submit" class="btn btn-danger" (click)="updateContenedor()">
+          Guardar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card card-body text-center">
+    <h3>Editar contenedor: FRR{{contenedor.matricula}}</h3>
+    <p>Fecha de alta: {{contenedor.fechinatala == '' ? '' : contenedor.fechinatala}}</p>
+    <p>Expediente: {{contenedor.expedienteAlta == '' ? '' : contenedor.expedienteAlta }}</p>
+    <p>Capacidad: {{contenedor.idCapacidad == '' ? '' : contenedor.idCapacidad }}</p>
+    <p>Observaciones: {{contenedor.observacionesRetorn == '' ? '' : contenedor.observacionesRetorn }}</p>
+    <p>Identificador: {{contenedor.idCalle == '' ? '' : contenedor.idCalle }}.{{contenedor.numCalle == '' ? '' : contenedor.numCalle }}.{{contenedor.idActividad == '' ? '' : contenedor.idActividad }}.{{contenedor.numOrden == '' ? '' : contenedor.numOrden }}</p>
+    <p>Solicitante: {{contenedor.solicitante == '' ? '' : contenedor.solicitante }}</p>
+  </div>
+</div>
