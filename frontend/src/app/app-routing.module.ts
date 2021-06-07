@@ -15,6 +15,7 @@ import { BajasComponent } from './components/bajas/bajas.component';
 import { VerReposicionComponent } from './components/ver-reposicion/ver-reposicion.component';
 import { FirmaComponent } from './components/firma/firma.component';
 
+//definimos las rutas a cada componente
 const routes: Routes = [
   {
     path: '',

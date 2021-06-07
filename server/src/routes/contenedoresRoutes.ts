@@ -9,6 +9,7 @@ class ContenedoresRoutes {
         this.config(); 
     }
 
+    //guardamos la dirección url que hace cada petición al servidor
     config(): void {
         this.router.get('/', contenedoresController.list);
         this.router.get('/sendemail/:numb/:correo', contenedoresController.sendemail);

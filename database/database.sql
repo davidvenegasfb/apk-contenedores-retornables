@@ -1,7 +1,10 @@
+/*creación base de datos*/
 CREATE DATABASE contenedoresretornables;
 
+/*decimos que usamos esta base de datos*/
 USE contenedoresretornables;
 
+/*creamos la primera tabla, contenedores, con todos sus datos atributos asociados (llave primaria matricula)*/
 CREATE TABLE contenedores(
     matricula INT(5) AUTO_INCREMENT PRIMARY KEY,
     idCalle VARCHAR(10),
@@ -25,6 +28,7 @@ CREATE TABLE contenedores(
     soterrado BOOLEAN
 );
 
+/*creamos igualmente la tabla reposiciones, que referencia a un contenedor*/
 CREATE TABLE reposiciones(
     matricula INT(5),
     fecha DATE,
@@ -43,6 +47,7 @@ CREATE TABLE reposiciones(
     FOREIGN KEY (matricula) REFERENCES contenedores(matricula)
 );
 
+/*creamos la tabla bajas, que también referencia a un contenedor*/
 CREATE TABLE bajas(
     matricula INT(5),
     fechabaja DATE,
@@ -52,38 +57,46 @@ CREATE TABLE bajas(
     FOREIGN KEY (matricula) REFERENCES contenedores(matricula)
 );
 
+/*creamos la tabla users para el login, con usuario y contraseña, a futuro se hasheará la contraseña*/
 CREATE TABLE users(
     username VARCHAR(50) NOT NULL PRIMARY KEY,
     password VARCHAR(50)
 );
 
+/*introducimos dos usuarios de ejemplo*/
 INSERT INTO users(username,password) VALUES ('david','0123');
 INSERT INTO users(username,password) VALUES ('felix','0123');
 
+/*creamos la tabla stock, donde almacenamos cuantos contenedores de cada tipo tenemos*/
 CREATE TABLE stock(
     capacidad INT(3) NOT NULL,
     cantidad INT(5) NOT NULL,
     fecha DATE
 );
 
+/*creamos la tabla certificaciones, para saber cuantos contenedores hay de cada tipo en la calle*/
 CREATE TABLE certificacion(
     capacidad INT(3) NOT NULL,
     cantidad INT(5) NOT NULL
 );
 
+/*y se inicializan a 0 todos los tipos de contenedores*/
 INSERT INTO certificacion(capacidad, cantidad) VALUES (120,0);
 INSERT INTO certificacion(capacidad, cantidad) VALUES (240,0);
 INSERT INTO certificacion(capacidad, cantidad) VALUES (360,0);
 INSERT INTO certificacion(capacidad, cantidad) VALUES (800,0);
 INSERT INTO certificacion(capacidad, cantidad) VALUES (1000,0);
 
+/*creamos la tabla calles, donde estarán todas las calles de Granada*/
 CREATE TABLE calles(
     codigo INT(6),
     denominacion VARCHAR(50)
 );
 
+/*creamos una tabla numberpdf, que servirá como contador para gruardar los pdfs*/
 CREATE TABLE numberpdf(
     numberpdf INT(5) AUTO_INCREMENT PRIMARY KEY
 );
 
+/*y lo inicializamos a 0*/
 INSERT INTO numberpdf VALUES (0);
