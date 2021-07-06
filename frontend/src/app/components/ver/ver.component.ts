@@ -13,6 +13,7 @@ export class VerComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
+  //variables
   contenedor: Contenedor = {
   };
   reposiciones: any;
@@ -21,11 +22,10 @@ export class VerComponent implements OnInit {
   auxi: any;
   calle: Calle;
 
-  constructor(private contenedoresService: ContenedoresService, private router: Router, private activatedroute: ActivatedRoute) { 
-
-  }
+  constructor(private contenedoresService: ContenedoresService, private router: Router, private activatedroute: ActivatedRoute) { }
 
   ngOnInit() {
+    //Obtenemos la matricula que se pasa poor parámetros, buscamos el contenedor y lo guardamos
     const params = this.activatedroute.snapshot.params;
     if (params.matricula) {
       this.contenedoresService.getContenedor(params.matricula)
@@ -36,6 +36,7 @@ export class VerComponent implements OnInit {
           },
           err => console.error(err)
         )
+      //Obtenemos las reposiciones del contenedor
       this.contenedoresService.getContenedor2(params.matricula)
       .subscribe(
         res => {
@@ -49,6 +50,7 @@ export class VerComponent implements OnInit {
     }
   }
 
+  //Mostramos las reposiciones en un formato más asequible
   Parser(){
     if(this.reposiciones.length!=0){
       this.auxi='Reposiciones de la matrícula '+this.Parser_reposiciones.matricula+':\n';

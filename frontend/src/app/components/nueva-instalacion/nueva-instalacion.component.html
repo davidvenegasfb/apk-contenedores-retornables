@@ -8,6 +8,7 @@
                     </td>
                     <td>
                         <div class="form-group">
+                            <!--con [(ngModel)] vamos modificando directamente contenedor con los valores que se le van pasando-->
                             <input size="2" type="text" name="fecha" [(ngModel)]="contenedor.fechinatala"
                                 onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control">
                         </div>
@@ -24,6 +25,7 @@
                 <div>
                     <table>
                         <td>
+                            <!--En caso de que se haga una entrega de más de un contenedor-->
                             <button (click)="addentrega()">Añadir contenedor a entrega</button>
                         </td>
                     </table>
@@ -37,6 +39,7 @@
                     </div>
                     <div *ngIf="busca">
                         <div class="list-container">
+                            <!--Un dropdown con todas las calles del servidor, donde al elegir una, muestra nombre y código de la misma-->
                             <dx-list 
                                 #list
                                 [dataSource]="tasks"
@@ -54,6 +57,7 @@
                         </div>
                     </div>
                 </div>
+                <!--El ngFor es para repetirlo para cada contenedor, guardandolos en i-->
                 <div *ngFor="let dummy of ' '.repeat(numberofnew+1).split(''), let i=index">
                     <div>
                         <p>Identificador:</p>
@@ -138,12 +142,13 @@
                                 <a>Mismo:</a>
                             </td>
                             <td>
+                                <!--copiará los datos para mayor facilidad-->
                                 <input type="checkbox" (change)="changecheckbox()">
                             </td>
                         </table>
                     </td>
                 </table>
-                <button type="button" class="btn btn-danger" (click)="saveNewContenedorCopia()">
+                <button type="button" class="btn btn-danger" (click)="saveNewContenedor()">
                     Firmar
                 </button>
             </form>

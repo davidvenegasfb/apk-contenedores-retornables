@@ -12,17 +12,21 @@ import { ContenedoresService } from '../../services/contenedores.service';
 
 export class FirmaComponent implements OnInit {
 
+  //parámetros iniciales
   params: any;
   today2: any;
   next: any;
   correo: any;
   checkbox: boolean = false;
+  signatureImage;
 
   constructor(private contenedoresService: ContenedoresService, private router: Router, private activatedroute: ActivatedRoute) {
   }
 
   ngOnInit(){
+    //guardamos el receptor
     this.params = this.activatedroute.snapshot.params.receptor;
+    //obtenemos la fecha de hoy
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -30,17 +34,17 @@ export class FirmaComponent implements OnInit {
     this.today2 = dd + '/' + mm + '/' + yyyy;
   }
 
-  signatureImage;
-
+  //Cuando pulsamos el botón, si el checkbox está activado, guardará el archivo en PDF, y volverá a inicio
   guardar() {
-    this.generatePdf();
+    this.getnumber();
     if(this.checkbox){
-      this.createemail();
+      this.createPDF();
     }
     this.navigate();
   }
 
-  async generatePdf(){
+  //Obtener el siguiente número
+  async getnumber(){
     this.contenedoresService.getNumber()
     .subscribe(
       res => {
@@ -50,8 +54,8 @@ export class FirmaComponent implements OnInit {
     )
   }
 
-  createemail(){
-    
+  //Crear el PDF
+  createPDF(){
     let data = document.getElementById('print');
     html2canvas(data, {logging: true, allowTaint: false, useCORS: true, scrollY: -window.scrollY}).then(canvas => {
       const contentDataURL = canvas.toDataURL();
@@ -62,10 +66,12 @@ export class FirmaComponent implements OnInit {
     });
   }
 
+  //Cambio del checkbox
   changecheckbox(){
     this.checkbox==false ? this.checkbox=true : this.checkbox=false;
   }
 
+  //Volvemos a inicio
   navigate(){
     this.router.navigate(['/contenedores/inicio/']);
   }

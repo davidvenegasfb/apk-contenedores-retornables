@@ -28,6 +28,7 @@ export class BuscarComponent {
   constructor(private router: Router, private contenedoresService: ContenedoresService) {}
 
   async ngOnInit() {
+    //Esperamos una vez más a las matriculas
     const result = await this.getMatriculas();
     this.tasks = new DataSource({
       store: new ArrayStore({
@@ -37,6 +38,7 @@ export class BuscarComponent {
     });
   }
 
+  //Obtenemos las matriculas
   public async getMatriculas(){
     return new Promise(resolve => {
       this.contenedoresService.getDenominaciones().subscribe(//que no sea asincrono
@@ -49,6 +51,7 @@ export class BuscarComponent {
     });
   }
 
+  //Dependiendo si el número es vacío o no, navegaremos a un componente u otro, que son la búsqueda por calle y númeor o solo por calle
   buscar(calle: any, numero: any) {
     if (numero==''){ 
       this.router.navigate(['/contenedores/vista1/?'], { queryParams: { calle } });

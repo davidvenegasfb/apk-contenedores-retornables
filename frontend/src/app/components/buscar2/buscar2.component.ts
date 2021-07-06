@@ -1,6 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
-import { Contenedor } from '../../models/Contenedor' 
+import { Contenedor } from '../../models/Contenedor'
 import { ContenedoresService } from '../../services/contenedores.service';
 
 @Component({
@@ -12,12 +12,14 @@ export class Buscar2Component implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
+  //variables
   contenedores: any = [];
   calle: any;
   numero: any;
 
   constructor(private contenedoresService: ContenedoresService, private router: Router, private activatedroute: ActivatedRoute) {
 
+    //guadamos la calle y el número que se pasan por la url
     this.activatedroute.queryParams.subscribe(params => {
       let calle = params['calle'];
       let numero = params['numero'];
@@ -25,12 +27,14 @@ export class Buscar2Component implements OnInit {
       this.numero = numero;
     });
 
-   }
+  }
 
+  //Llamamos a getContenedores
   ngOnInit() {
     this.getContenedores();
   }
 
+  //Obtenemos los contenedores en la calle y el número que se nos han pasado por parámetros
   getContenedores() {
     this.contenedoresService.buscar2(this.calle, this.numero).subscribe(
       res => {
@@ -40,7 +44,10 @@ export class Buscar2Component implements OnInit {
     );
   }
 
-  deleteContenedor(contenedor: Contenedor){
+  //Nos encontramos con varias funciones que depende de lo que pretendan hacer nos llevarán a un componente u otro:
+
+  //Borrar un contenedor
+  deleteContenedor(contenedor: Contenedor) {
     this.contenedoresService.deleteContenedor(contenedor).subscribe(
       res => {
         this.getContenedores();
@@ -49,26 +56,29 @@ export class Buscar2Component implements OnInit {
     )
   }
 
+  //Modificar un contenedor
   editContenedor(contenedor: Contenedor) {
     this.contenedoresService.getContenedor(contenedor.matricula)
-    .subscribe(
-      res => {
-        this.router.navigate(['/contenedores/edit/', contenedor.matricula]);
-      },
-      err => console.log(err)
-    )
+      .subscribe(
+        res => {
+          this.router.navigate(['/contenedores/edit/', contenedor.matricula]);
+        },
+        err => console.log(err)
+      )
   }
 
+  //Ver un contenedor
   seeContenedor(contenedor: Contenedor) {
     this.contenedoresService.getContenedor(contenedor.matricula)
-    .subscribe(
-      res => {
-        this.router.navigate(['/contenedores/ver/', contenedor.matricula]);
-      },
-      err => console.log(err)
-    )
+      .subscribe(
+        res => {
+          this.router.navigate(['/contenedores/ver/', contenedor.matricula]);
+        },
+        err => console.log(err)
+      )
   }
 
+  //Reponer un contenedor
   reponerContenedor(contenedor: Contenedor) {
     this.router.navigate(['/contenedores/reponerp1/', contenedor.matricula]);
   }

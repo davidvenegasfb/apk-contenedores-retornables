@@ -10,6 +10,7 @@ import { ConstantsService } from '../../services/constants.service';
 })
 export class ReponerComponent implements OnInit {
 
+  //variables
   nombre: string;
   direccion: string;
   telefono: string;
@@ -20,10 +21,11 @@ export class ReponerComponent implements OnInit {
   constructor(private contenedoresService: ContenedoresService, private router: Router, private activatedroute: ActivatedRoute, private constant: ConstantsService) {}
 
   ngOnInit(): void {
+    //obtenemos la matricula que se pasa por parámetros
     this.matricula= this.activatedroute.snapshot.params.matricula;
   }
 
-  //poner el resto de datos
+  //Llama a reponer contenedor y vamos a firmar
   firmar(){
     this.contenedoresService.reponerContenedor(this.matricula, this.causa, this.constant.username, this.nombre, this.direccion, this.telefono, this.CIF).subscribe(
       res => {

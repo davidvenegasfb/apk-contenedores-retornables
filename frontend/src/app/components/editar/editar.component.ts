@@ -12,17 +12,16 @@ export class ReposicionComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
+  //variables
   contenedor: Contenedor = {
   };
   fechainstalacion: string;
-
   edit: boolean = false;
 
-  constructor(private contenedoresService: ContenedoresService, private router: Router, private activatedroute: ActivatedRoute) { 
-
-  }
+  constructor(private contenedoresService: ContenedoresService, private router: Router, private activatedroute: ActivatedRoute) { }
 
   ngOnInit() {
+    //Guardamos la matricula que se nos pasa por parámetros y buscamos y guardamos el contenedor con dicha matricula
     const params = this.activatedroute.snapshot.params;
     if (params.matricula) {
       this.contenedoresService.getContenedor(params.matricula)
@@ -39,6 +38,7 @@ export class ReposicionComponent implements OnInit {
     }
   }
 
+  //Modificamos el contenedor con los valores introducidos
   updateContenedor() {
     this.fechainstalacion=(document.getElementById("md") as HTMLTextAreaElement).value;
     this.contenedor.fechinatala=this.fechainstalacion.substring(6,10)+'-'+this.fechainstalacion.substring(3,5)+'-'+this.fechainstalacion.substring(0,2)
